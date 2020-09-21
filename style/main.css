@@ -1,0 +1,125 @@
+.clearfix::before,
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+body {
+    background-color: rgb(241, 241, 241);
+    font-family: -apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif;
+    font-size: 14px;
+}
+
+.all {
+    background-color: #fff;
+    width: 400px;
+    height: 500px;
+    margin: 200px auto 0px;
+}
+
+.all .main {
+    width: 300px;
+    margin: auto;
+    /* border: 1px solid red; */
+}
+
+.all .main .title {
+    width: 200px;
+    margin: 60px auto;
+    /* border: 1px solid orange; */
+    font-weight: bold;
+}
+
+.all .main .title a{
+    text-decoration: none;
+    color: rgb(175, 167, 167)
+}
+
+.all .main .title a.here_a{
+    text-decoration: none;
+    color: #EA6F5A;
+}
+
+.all .main .title .title-list li {
+    float: left;
+    line-height: 30px;
+    text-align: center;
+    border-bottom: 2px solid transparent;
+    font-size: 18px;
+    width: 66px;
+}
+
+.all .main .title .title-list li.highlight,
+.all .main .title .title-list li:not(.li-space):hover {
+    border-bottom: 2px solid #EA6F5A;
+}
+
+.all .main .title .title-list li span.space {
+    display: block;
+    width: 4px;
+    height: 4px;
+    margin: auto;
+    margin-top: 13px;
+    background-color: rgb(197, 194, 194);
+}
+
+.all .main .login_enroll {
+    float: left;
+    margin-top: 40px;
+}
+
+.all .main .login_enroll .login,
+.all .main .login_enroll .enroll{
+    width: 300px;
+}
+
+.all .main .login_enroll i.fas,
+.all .main .login_enroll input {
+    padding: 15px 10px;
+}
+
+.all .main .login_enroll i.fas {
+    position: absolute;
+    color: rgb(133, 129, 129);
+}
+
+.all .main .login_enroll input {
+    background-color: rgb(241, 241, 241);
+    border: 1px solid #C8C8C8;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    outline-style: none;
+    width: 280px;
+}
+
+.all .main .login_enroll input:nth-of-type(2) {
+    border-top: none;
+    border-radius: 0px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.all .main .login_enroll .button {
+    width: 100%;
+    background-color: #3194D0;
+    color: white;
+    font-size: 18px;
+    margin-top: 80px;
+    border-radius: 30px;
+    /* font-weight: bold; */
+}
+
+.all .main .login_enroll .button:hover {
+    cursor: pointer;
+}
+
+.all .main .login_enroll input:not(:last-child) {
+    text-indent: 20px;
+}
+
+.all .bottom {
+    float: right;
+    margin: 20px;
+    background-color: #bfa;
+}
