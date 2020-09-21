@@ -28,7 +28,7 @@ function find($link, $user, $password)
 {
     //获取数据库内的账号密码
     // $query = 'SELECT * FROM table1';
-    $query = 'SELECT * FROM '.USER_PASSWORD_TABLE;
+    $query = 'SELECT * FROM '.STUDENT_ACCOUNT_TABLE;
     $result = mysqli_query($link, $query);
     $user_password = mysqli_fetch_all($result);
 
@@ -55,7 +55,7 @@ function find_user($link, $user)
 {
     //获取数据库内的账号密码
     // $query = 'SELECT * FROM table1';
-    $query = 'SELECT * FROM ' . USER_PASSWORD_TABLE;
+    $query = 'SELECT * FROM ' . STUDENT_ACCOUNT_TABLE;
     $result = mysqli_query($link, $query);
     $user_password = mysqli_fetch_all($result);
 
@@ -79,7 +79,7 @@ function find_user($link, $user)
 
 //将账号密码存入数据库中，返回bool
 function add($link, $user, $password) {
-    $query = "INSERT INTO ".USER_PASSWORD_TABLE."(user,password) VALUES('".$user."','".$password."');";
+    $query = "INSERT INTO ".STUDENT_ACCOUNT_TABLE."(user,password) VALUES('".$user."','".$password."');";
     $result = mysqli_real_query($link, $query);
     return $result;
 }
