@@ -105,3 +105,10 @@ function insert_student($link, $id, $name, $sex, $age) {
     $result = mysqli_real_query($link, $query);
     return $result;
 }
+
+function select_name_student($link, $id) {
+    $query = 'SELECT `name` FROM '.STUDENT_TABLE.' WHERE id='.$id.';';
+    $result = mysqli_query($link, $query);
+    $name = mysqli_fetch_all($result);
+    return $name[0][0];
+}
