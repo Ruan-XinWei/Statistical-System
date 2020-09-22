@@ -139,6 +139,13 @@ function select_age_student_use_id($link, $id)
     return $age[0][0];
 }
 
+function select_num_team_use_id($link, $id) {
+    $query = 'SELECT `num` FROM '.TEAM_TABLE.' WHERE id = "'.$id.'";';
+    $result = mysqli_query($link, $query);
+    $num = mysqli_fetch_all($result);
+    return $num[0][0];
+}
+
 //通过学号修改学号
 function update_id_student_use_id($link, $newid, $oldid) {
     $query = 'UPDATE `student` SET `id`="'.$newid.'" WHERE id='.$oldid.';';
