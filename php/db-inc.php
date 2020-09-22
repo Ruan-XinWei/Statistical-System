@@ -23,6 +23,21 @@ function get_password()
     return @$_POST['password'];
 }
 
+//获取输入框中的姓名
+function get_name() {
+    return @$_POST['name'];
+}
+
+//获取输入框中的性别
+function get_sex() {
+    return @$_POST['sex'];
+}
+
+//获取输入框中的年龄
+function get_age() {
+    return @$_POST['age'];
+}
+
 //检测账号密码是否在数据库中，返回bool
 function find($link, $user, $password)
 {
@@ -77,9 +92,16 @@ function find_user($link, $user)
     }
 }
 
-//将账号密码存入数据库中，返回bool
-function add($link, $user, $password) {
-    $query = "INSERT INTO ".STUDENT_ACCOUNT_TABLE."(user,password) VALUES('".$user."','".$password."');";
+//将账号密码存入student_account中，返回bool
+function insert_student_account($link, $user, $password="password") {
+    $query = "INSERT INTO ".STUDENT_ACCOUNT_TABLE."(id,password) VALUES('".$user."','".$password."');";
+    $result = mysqli_real_query($link, $query);
+    return $result;
+}
+
+//将数据存入student，返回bool
+function insert_student($link, $id, $name, $sex, $age) {
+    $query = 'INSERT INTO '.STUDENT_TABLE.'(`id`, `name`, `sex`, `age`) VALUES ("'.$id.'","'.$name.'","'.$sex.'","'.$age.'");';
     $result = mysqli_real_query($link, $query);
     return $result;
 }

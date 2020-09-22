@@ -37,6 +37,7 @@ CREATE TABLE $user_password_table
 (
     `id` BIGINT NOT NULL , 
     `password` VARCHAR(30) NOT NULL DEFAULT 'password' ,
+    PRIMARY KEY (`id`) ,
     FOREIGN KEY (`id`) REFERENCES $student_table(`id`)
 )
 ENGINE = InnoDB;
@@ -91,11 +92,6 @@ CREATE TABLE $student_team_table
     FOREIGN KEY (`team_id`) REFERENCES $team_table(`id`)
 ) 
 ENGINE = InnoDB;
-
-INSERT
-INTO $user_password_table (id)
-VALUES
-("201813137171");
 STRING;
 
 $result = mysqli_multi_query($link, $query);
