@@ -12,6 +12,7 @@ body {
 }
 
 .all {
+    position: relative;
     background-color: #fff;
     width: 400px;
     height: 500px;
@@ -26,7 +27,7 @@ body {
 
 .all .main .title {
     width: 200px;
-    margin: 60px auto;
+    margin: 60px auto 0px;
     /* border: 1px solid orange; */
     font-weight: bold;
 }
@@ -66,7 +67,12 @@ body {
 
 .all .main .login_enroll {
     float: left;
-    margin-top: 40px;
+    margin-top: 30px;
+}
+
+.all .main .login_enroll .login {
+    height: 100px;
+    margin-top: 80px;
 }
 
 .all .main .login_enroll .login,
@@ -87,25 +93,30 @@ body {
 .all .main .login_enroll input {
     background-color: rgb(241, 241, 241);
     border: 1px solid #C8C8C8;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+    border-top: none;
     outline-style: none;
     width: 280px;
 }
 
-.all .main .login_enroll input:nth-of-type(2) {
-    border-top: none;
-    border-radius: 0px;
+.all .main .login_enroll input:nth-of-type(1) {
+    border: 1px solid #C8C8C8;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.all .main .login_enroll input:nth-last-child(3) {
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
 }
 
 .all .main .login_enroll .button {
-    width: 100%;
+    position: absolute;
+    bottom: 30px;
+    width: 300px;
     background-color: #3194D0;
     color: white;
     font-size: 18px;
-    margin-top: 80px;
+    /* margin-top: 80px; */
     border-radius: 30px;
     /* font-weight: bold; */
 }
