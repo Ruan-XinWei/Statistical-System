@@ -115,6 +115,6 @@ else {
 
 echo '
 <script>
-    window.location.replace("../main.html");
+    window.location.replace("../index.html");
 </script>';
 ?>

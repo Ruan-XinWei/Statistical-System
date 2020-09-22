@@ -15,7 +15,7 @@ if ($enroll_user != "" && $enroll_password != "") {
             echo '
         <script>
             alert("此用户已存在"); 
-            window.location.replace("../main.html"); 
+            window.location.replace("../index.html"); 
         </script>';
         } else {
             $add_bool = add($link, $enroll_user, $enroll_password);
@@ -23,13 +23,13 @@ if ($enroll_user != "" && $enroll_password != "") {
                 echo '
             <script>
                 alert("注册成功"); 
-                window.location.replace("../main.html"); 
+                window.location.replace("../index.html"); 
             </script>';
             } else {
                 echo '
             <script>
                 alert("注册失败，请再试一次"); 
-                window.location.replace("../main.html"); 
+                window.location.replace("../index.html"); 
             </script>';
             }
         }
@@ -38,7 +38,7 @@ if ($enroll_user != "" && $enroll_password != "") {
         echo '
             <script>
                 alert("用户名必须为数字组合"); 
-                window.location.replace("../main.html"); 
+                window.location.replace("../index.html"); 
             </script>';
     }
 }

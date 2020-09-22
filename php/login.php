@@ -28,15 +28,22 @@ if ($login_user != "" && $login_password != "") {
         echo '
         <script>
             alert("登录失败，请重新登录"); 
-            window.location.replace("../main.html"); 
+            window.location.replace("../index.html"); 
         </script>';
     }
-} else if ($login_user == "" && $login_password == "") {}
+} 
+else if ($login_user == "" && $login_password == "") {
+    echo '
+        <script>
+            alert("用户名和密码不能为空");
+            window.location.replace("../index.html"); 
+        </script>';
+}
 else {
     echo '
         <script>
             alert("用户名或密码不能为空");
-            window.location.replace("../main.html"); 
+            window.location.replace("../index.html"); 
         </script>';
 }
 
