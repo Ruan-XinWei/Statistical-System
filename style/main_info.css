@@ -98,7 +98,7 @@ body {
 
 .main {
     width: 100%;
-    height: 600px;
+    height: 700px;
     /* background-color: #bfa; */
 }
 
@@ -158,4 +158,27 @@ body {
     width: 100px;
     text-align: center;
     background-color: #bfa;
+}
+
+.main .main_main .main_info .main_body table {
+    float: left;
+    border: 1px solid rgb(165, 159, 159);
+    border-right: none;
+    border-bottom: none;
+    /* background-color: red; */
+}
+
+.main .main_main .main_info .main_body td {
+    width: 200px;
+    height: 80px;
+    line-height: 80px;
+    border: 1px solid rgb(165, 159, 159);
+    border-top: none;
+    border-left: none;
+    text-align: center;
+}
+
+.main .main_main .main_info .main_body form {
+    float: left;
+    margin-left: 20px;
 }

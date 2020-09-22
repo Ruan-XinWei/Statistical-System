@@ -38,7 +38,7 @@ CREATE TABLE $user_password_table
     `id` BIGINT NOT NULL , 
     `password` VARCHAR(30) NOT NULL DEFAULT 'password' ,
     PRIMARY KEY (`id`) ,
-    FOREIGN KEY (`id`) REFERENCES $student_table(`id`)
+    FOREIGN KEY (`id`) REFERENCES $student_table(`id`) ON DELETE CASCADE ON UPDATE CASCADE
 )
 ENGINE = InnoDB;
 

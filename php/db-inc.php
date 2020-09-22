@@ -11,10 +11,18 @@ function db_connect($host=HOST,$user=USER,$password=PASSWORD,$database=DATABASE,
     return mysqli_connect($host, $user, $password, $database, $port);
 }
 
+//获取当前URL网址参数
+function geturl_string() {
+    return urldecode($_SERVER['QUERY_STRING']);
+}
+
 //获取输入框中的账号，返回变量
 function get_user()
 {
     return @$_POST['user'];
+}
+function get_id() {
+    return @$_POST['id'];
 }
 
 //获取输入框中的密码，返回变量
@@ -106,9 +114,54 @@ function insert_student($link, $id, $name, $sex, $age) {
     return $result;
 }
 
+//通过学号查找学生姓名
 function select_name_student($link, $id) {
     $query = 'SELECT `name` FROM '.STUDENT_TABLE.' WHERE id='.$id.';';
     $result = mysqli_query($link, $query);
     $name = mysqli_fetch_all($result);
     return $name[0][0];
+}
+
+//通过学号查找学生性别
+function select_sex_student_use_id($link, $id) {
+    $query = 'SELECT `sex` FROM ' . STUDENT_TABLE . ' WHERE id=' . $id . ';';
+    $result = mysqli_query($link, $query);
+    $sex = mysqli_fetch_all($result);
+    return $sex[0][0];
+}
+
+//通过学号查找学生年龄
+function select_age_student_use_id($link, $id)
+{
+    $query = 'SELECT `age` FROM ' . STUDENT_TABLE . ' WHERE id=' . $id . ';';
+    $result = mysqli_query($link, $query);
+    $age = mysqli_fetch_all($result);
+    return $age[0][0];
+}
+
+//通过学号修改学号
+function update_id_student_use_id($link, $newid, $oldid) {
+    $query = 'UPDATE `student` SET `id`="'.$newid.'" WHERE id='.$oldid.';';
+    return mysqli_real_query($link, $query);
+}
+
+//通过学号修改姓名
+function update_name_student_use_id($link, $name, $oldid)
+{
+    $query = 'UPDATE `student` SET `name`="' . $name . '" WHERE id=' . $oldid . ';';
+    return mysqli_real_query($link, $query);
+}
+
+//通过学号修改性别
+function update_sex_student_use_id($link, $sex, $oldid)
+{
+    $query = 'UPDATE `student` SET `sex`="' . $sex . '" WHERE id=' . $oldid . ';';
+    return mysqli_real_query($link, $query);
+}
+
+//通过学号修改年龄
+function update_age_student_use_id($link, $age, $oldid)
+{
+    $query = 'UPDATE `student` SET `age`="' . $age . '" WHERE id=' . $oldid . ';';
+    return mysqli_real_query($link, $query);
 }
