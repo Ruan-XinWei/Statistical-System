@@ -169,7 +169,7 @@
                             else {
                                 echo '<script>alert("删除失败")</script>';
                             }
-                        } else if ($team_id != '' && $activity_id != '' && $time != '' && $teacher_id != '' && $academy != '') {
+                        } else if ($id == '' && $name == '' && $sex == '' && $age == '') {
                         }
                         else {
                             echo '<script>alert("不能为空")</script>';
