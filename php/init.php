@@ -78,9 +78,9 @@ CREATE TABLE $achievement_table
     `teacher_id` BIGINT NOT NULL , 
     `academy` VARCHAR(30) NOT NULL , 
     PRIMARY KEY (`team_id`, `activity_id`) ,
-    FOREIGN KEY (`team_id`) REFERENCES $team_table(`id`) ,
-    FOREIGN KEY (`activity_id`) REFERENCES $activity_table(`id`) ,
-    FOREIGN KEY (`teacher_id`) REFERENCES $teacher_table(`id`)
+    FOREIGN KEY (`team_id`) REFERENCES $team_table(`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (`activity_id`) REFERENCES $activity_table(`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (`teacher_id`) REFERENCES $teacher_table(`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) 
 ENGINE = InnoDB;
 
@@ -89,8 +89,8 @@ CREATE TABLE $student_team_table
     `student_id` BIGINT NOT NULL , 
     `team_id` BIGINT NOT NULL , 
     PRIMARY KEY (`student_id`, `team_id`) ,
-    FOREIGN KEY (`student_id`) REFERENCES $student_table(`id`) ,
-    FOREIGN KEY (`team_id`) REFERENCES $team_table(`id`)
+    FOREIGN KEY (`student_id`) REFERENCES $student_table(`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (`team_id`) REFERENCES $team_table(`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) 
 ENGINE = InnoDB;
 
