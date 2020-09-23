@@ -159,7 +159,6 @@
                             STRING;
                             $query = 'INSERT INTO ' . STUDENT_TEAM_TABLE . '(student_id, team_id) VALUES ' . $values_section;
                             $result = mysqli_real_query($link, $query);
-                            echo $query;
                             if ($result == true) {
                                 echo '<script>alert("添加成功")</script>';
                             } else {
