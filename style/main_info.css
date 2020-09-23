@@ -155,9 +155,13 @@ body {
 
 .main .main_main .main_info .main_info_top_nav li {
     float: left;
-    width: 100px;
+    width: 150px;
     text-align: center;
     background-color: #bfa;
+}
+
+.main .main_main .main_info .main_body {
+    margin-left: 20px;
 }
 
 .main .main_main .main_info .main_body table {
@@ -179,6 +183,6 @@ body {
 }
 
 .main .main_main .main_info .main_body form {
-    float: left;
-    margin-left: 20px;
+    /* float: left; */
+    /* border: 1px solid red; */
 }

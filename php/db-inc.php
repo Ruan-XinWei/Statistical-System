@@ -46,6 +46,55 @@ function get_age() {
     return @$_POST['age'];
 }
 
+//获取输入框中的数量
+function get_num() {
+    return @$_POST['num'];
+}
+
+//获取输入框中的口号
+function get_slogan() {
+    return @$_POST['slogan'];
+}
+
+//获取输入框中的团队号
+function get_team_id() {
+    return @$_POST['team_id'];
+}
+
+//获取输入框中的活动编号
+function get_activity_id()
+{
+    return @$_POST['activity_id'];
+}
+
+//获取输入框中的最早时间
+function get_time_start()
+{
+    return @$_POST['time_start'];
+}
+
+//获取输入框中的最晚时间
+function get_time_end()
+{
+    return @$_POST['time_end'];
+}
+
+//获取输入框中的指导老师编号
+function get_teacher_id()
+{
+    return @$_POST['teacher_id'];
+}
+
+//获取输入框中的报送学院
+function get_academy() {
+    return @$_POST['academy'];
+}
+
+//通用获取
+function get_input($name) {
+    return @$_POST["{$name}"];
+}
+
 //检测账号密码是否在数据库中，返回bool
 function find($link, $user, $password)
 {
@@ -137,6 +186,12 @@ function select_age_student_use_id($link, $id)
     $result = mysqli_query($link, $query);
     $age = mysqli_fetch_all($result);
     return $age[0][0];
+}
+
+function select_id_student_use_age($link, $age) {
+    $query = 'SELECT `id` FROM '.STUDENT_TABLE.' WHERE age="'.$age.'";';
+    $result = mysqli_query($link, $query);
+    return mysqli_fetch_all($result);
 }
 
 function select_num_team_use_id($link, $id) {

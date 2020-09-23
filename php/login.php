@@ -20,7 +20,7 @@ if ($login_user != "" && $login_password != "") {
     if ($find_bool == true) {
         echo '
             <script>
-                window.location.replace("../php/page/main_info.php?user='.select_name_student($link, $login_user).'&id='.$login_user.'"); 
+                window.location.replace("../php/page/personal_center_page/main_info.php?user='.select_name_student($link, $login_user).'&id='.$login_user.'"); 
             </script>';
         // header("location:https://www.baidu.com/");
         //history.back();
