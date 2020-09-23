@@ -131,7 +131,7 @@
                         <span>个人中心</span>
                     </div>
                 </div>
-                <div class="main_info_top_nav">
+                <div class="main_info_top_nav clearfix">
                     <ul class="clearfix">
                         <li><a href="javascript:;"><span>个人信息</span></a></li>
                         <li><a href="main_change_info?<?php echo $url_user_id ?>"><span>修改信息</span></a></li>

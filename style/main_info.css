@@ -15,15 +15,16 @@ a {
     color: black;   
 }
 
-body {
-    background-image: linear-gradient(to right, white, rgb(241, 236, 226));
+body,
+.main .main_main .main_info {
+    background-image: linear-gradient(to right, rgb(235, 232, 226), rgb(209, 204, 192));
 }
 
 .header {
     position: relative;
     width: 100%;
     height: 80px;
-    background-color: #fff;
+    background-color:rgb(250, 240, 219);
 }
 
 .header .header_main {
@@ -57,21 +58,25 @@ body {
 }
 
 .title {
+    position: absolute;
+    z-index: 999;
+    top: 0px;
     width: 100%;
-    height: 60px;
-    line-height: 60px;
+    height: 80px;
+    line-height: 80px;
 }
 
 .title .title_main {
-    width: 75%;
-    margin: 0px auto;
+    width: 400px;
+    /* margin: 0px auto; */
+    margin-left: 360px;
     text-align: center;
 }
 
 .title .title_main span {
     display: block;
     width: 400px;
-    line-height: 60px;
+    line-height: 80px;
     margin: 0px auto;
     font-size: 30px;
     font-weight: bold;
@@ -79,15 +84,24 @@ body {
 }
 
 .top_list {
+    position: absolute;
+    z-index: 1000;
+    top: 0px;
+    padding-top: 80px;
     width: 100%;
     height: 60px;
     line-height: 60px;
+    background-color: transparent;
+}
+
+.top_list:hover .top_list_main{
+    display: block;
+    background-image: linear-gradient(to right, rgb(235, 232, 226), rgb(209, 204, 192));
 }
 
 .top_list .top_list_main {
-    width: 75%;
-    margin: 0px auto;
-    background-color: orange;
+    display: none;
+    padding-left: 360px;
 }
 
 .top_list .top_list_main li {
@@ -96,13 +110,19 @@ body {
     text-align: center;
 }
 
+.top_list .top_list_main li:hover {
+    background-color: #fff;
+}
+
 .main {
     width: 100%;
     height: 700px;
+    margin-top: 60px;
     /* background-color: #bfa; */
 }
 
 .main .main_main {
+    position: relative;
     width: 75%;
     height: 100%;
     margin: 0px auto;
@@ -110,9 +130,12 @@ body {
 }
 
 .main .main_main .left_nav {
-    float: left;
-    width: 20%;
+    position: absolute;
+    z-index: 10;
+    width: 300px;
     height: 100%;
+    overflow: auto;
+    border: 20px solid white;
     /* background-color: #fff; */
 }
 
@@ -133,10 +156,12 @@ body {
 }
 
 .main .main_main .main_info {
-    float: left;
-    width: 80%;
+    position: relative;
+    z-index: 11;
+    width: 1152px;
     height: 100%;
-    /* background-color: red; */
+    margin-left: 300px;
+    border: 20px solid white;
 }
 
 .main .main_main .main_info .main_info_title {
@@ -153,19 +178,39 @@ body {
     line-height: 60px;
 }
 
-.main .main_main .main_info .main_info_top_nav li {
+.main .main_main .main_info .main_info_top_nav ul {
+    float: left;
+    margin-left: 20px;
+    border: 1px solid rgb(165, 159, 159);
+    border-right: none;
+    border-bottom: none;
+}
+
+.main .main_main .main_info .main_info_top_nav ul li {
     float: left;
     width: 150px;
     text-align: center;
-    background-color: #bfa;
+    background-color: white;
+    border: 1px solid rgb(165, 159, 159);
+    border-left: none;
+    border-top: none;
+}
+
+.main .main_main .main_info .main_info_top_nav ul li:hover {
+    background-color: rgb(223, 217, 217);
 }
 
 .main .main_main .main_info .main_body {
+    position: absolute;
+    bottom: 0px;
+    width: 1132px;
+    height: 550px;
     margin-left: 20px;
+    overflow: auto;
 }
 
 .main .main_main .main_info .main_body table {
-    float: left;
+    /* float: left; */
     border: 1px solid rgb(165, 159, 159);
     border-right: none;
     border-bottom: none;
