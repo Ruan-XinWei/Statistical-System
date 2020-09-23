@@ -68,6 +68,9 @@
                 <div class="left_inquiry_information left_nav_li">
                     <span class="left_nav_title">查询信息</span>
                     <ul>
+                        <li><a href="javascript:;"><span>查询学生</span></a></li>
+                        <li><a href="javascript:;"><span>查询老师</span></a></li>
+                        <li><a href="javascript:;"><span>查询团队</span></a></li>
                         <li><a href="javascript:;"><span>查询活动</span></a></li>
                         <li><a href="javascript:;"><span>查询成果</span></a></li>
                     </ul>
@@ -81,42 +84,36 @@
                 </div>
                 <div class="main_info_top_nav">
                     <ul class="clearfix">
+                        <li><a href="javascript:;"><span>查询学生</span></a></li>
+                        <li><a href="javascript:;"><span>查询老师</span></a></li>
+                        <li><a href="javascript:;"><span>查询团队</span></a></li>
                         <li><a href="javascript:;"><span>查询活动</span></a></li>
                         <li><a href="javascript:;"><span>查询成果</span></a></li>
                     </ul>
                 </div>
                 <div class="main_body clearfix">
-                    <table>
-                        <tr>
-                            <td>姓名：</td>
-                            <td>
-                                <?php
-                                $start = strpos($url_user_id, "user=") + 5;
-                                $end = strpos($url_user_id, "&id=");
-                                $name = substr($url_user_id, $start, $end - $start);
-                                echo $name;
-                                ?>
-                            </td>
-                            <td>学号：</td>
-                            <td>
-                                <?php
-                                $start = strpos($url_user_id, "id=") + 3;
-                                $id = substr($url_user_id, $start);
-                                echo $id;
-                                ?>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>性别：</td>
-                            <td>
-                                <?php echo select_sex_student_use_id($link, $id); ?>
-                            </td>
-                            <td>年龄：</td>
-                            <td>
-                                <?php echo select_age_student_use_id($link, $id); ?>
-                            </td>
-                        </tr>
-                    </table>
+                    <!-- <table>
+                        
+                    </table> -->
+                    <form action="main_inquiry_activity.php?<?php echo $url_user_id ?>" method="post">
+                        <label for="age">请输入年龄</label>
+                        <input type="text" name="age" id="age">
+                        <input type="submit" value="提交">
+                    </form>
+
+                    <div class="main_body_info">
+                        <?php
+                        $age = get_age();
+                        $result = select_id_student_use_age($link, $age);
+                        $array_count = count($result);
+                        if ($array_count == 0) {
+                            echo '没有查询到结果';
+                        }
+                        for ($i = 0; $i < $array_count; ++$i) {
+                            echo $result[$i][0] . '</br>';
+                        }
+                        ?>
+                    </div>
                 </div>
             </div>
         </div>

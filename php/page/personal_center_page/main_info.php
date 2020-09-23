@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <title>学生课外活动成果统计系统</title>
-    <link rel="stylesheet" href="../../style/reset.css">
-    <link rel="stylesheet" href="../../style/main_info.css">
-    <script src="../../script/getUrlParam.js"></script>
-    <script src="../../script/myFunction.js"></script>
-    <script src="../../script/main_info.js"></script>
+    <link rel="stylesheet" href="../../../style/reset.css">
+    <link rel="stylesheet" href="../../../style/main_info.css">
+    <script src="../../../script/getUrlParam.js"></script>
+    <script src="../../../script/myFunction.js"></script>
+    <script src="../../../script/main_info.js"></script>
     <?php
-    include_once "../db-inc.php";
+    include_once "../../db-inc.php";
     $link = db_connect();
     $url_user_id = geturl_string();
     ?>
@@ -21,7 +21,7 @@
         <div class="header_main clearfix">
             <div class="img">
                 <a href="javascript:;">
-                    <img src="../../img/wust_logo(no background).jpg" alt="wust_logo">
+                    <img src="../../../img/wust_logo(no background).jpg" alt="wust_logo">
                 </a>
             </div>
             <div class="info">
@@ -44,7 +44,7 @@
     <div class="top_list">
         <ul class="top_list_main clearfix">
             <li class="personal_center">
-                <a href="main_info?<?php echo $url_user_id ?>">
+                <a href="">
                     <span>个人中心</span>
                 </a>
             </li>
@@ -61,8 +61,8 @@
                 <div class="left_personal_center left_nav_li">
                     <span class="left_nav_title">个人中心</span>
                     <ul>
-                        <li><a href="main_info?<?php echo $url_user_id ?>"><span>个人信息</span></a></li>
-                        <li><a href="javascript:;"><span>修改信息</span></a></li>
+                        <li><a href="javascript:;"><span>个人信息</span></a></li>
+                        <li><a href="main_change_info?<?php echo $url_user_id ?>"><span>修改信息</span></a></li>
                     </ul>
                 </div>
                 <div class="left_inquiry_information left_nav_li">
@@ -81,8 +81,8 @@
                 </div>
                 <div class="main_info_top_nav">
                     <ul class="clearfix">
-                        <li><a href="main_info?<?php echo $url_user_id ?>"><span>个人信息</span></a></li>
-                        <li><a href="javascript:;"><span>修改信息</span></a></li>
+                        <li><a href="javascript:;"><span>个人信息</span></a></li>
+                        <li><a href="main_change_info?<?php echo $url_user_id ?>"><span>修改信息</span></a></li>
                     </ul>
                 </div>
                 <div class="main_body clearfix">
@@ -97,8 +97,6 @@
                                 echo $name;
                                 ?>
                             </td>
-                        </tr>
-                        <tr>
                             <td>学号：</td>
                             <td>
                                 <?php
@@ -113,29 +111,12 @@
                             <td>
                                 <?php echo select_sex_student_use_id($link, $id); ?>
                             </td>
-                        </tr>
-                        <tr>
                             <td>年龄：</td>
                             <td>
                                 <?php echo select_age_student_use_id($link, $id); ?>
                             </td>
                         </tr>
                     </table>
-                    <form action="../main_change_info_php.php?<?php echo $url_user_id ?>" method="post">
-                        <label for="name">需要修改的姓名：</label>
-                        <input type="text" id="name" name="name" placeholder="请输入你想要修改的姓名">
-                        </br>
-                        <label for="id">需要修改的学号：</label>
-                        <input type="text" id="id" name="id" placeholder="请输入你想要修改的学号">
-                        </br>
-                        <label for="sex">需要修改的性别：</label>
-                        <input type="text" id="sex" name="sex" placeholder="请输入你想要修改的性别">
-                        </br>
-                        <label for="age">需要修改的年龄：</label>
-                        <input type="text" id="age" name="age" placeholder="请输入你想要修改的年龄">
-                        </br>
-                        <input type='submit' value='提交'>
-                    </form>
                 </div>
             </div>
         </div>
