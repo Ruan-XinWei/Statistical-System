@@ -167,6 +167,7 @@
                         $newsex = get_input("newsex");
                         $newage = get_input("newage");
                         if ($id != '' || $name != '' || $sex != '' || $age != '') {
+
                             $index = 0;
                             if ($id != '')  $index += 1000;
                             if ($name != '')  $index += 100;
@@ -202,6 +203,18 @@
 
                             if($array_count == 0) {
                                 echo "<script>alert(\"{$error_info}\")</script>";
+                            }
+                            else {
+                                $set_section = ($newid == '' ? '' : (',id="' . $newid . '"')) . ($newname == '' ? '' : (', name="' . $newname . '"')) . ($newsex == '' ? '' : (', sex="' . $newsex . '"')) . ($newage == '' ? '' : ', age="' . $newage . '"');
+                                $set_section = 'SET ' . substr($set_section, 1);
+                                $query = 'UPDATE ' . STUDENT_TABLE . ' ' . $set_section . ' ' . $where_section . ';';
+                                $result = mysqli_real_query($link, $query);
+                                if($result == true) {
+                                    echo '<script>alert("更新成功");</script>';
+                                }
+                                else {
+                                    echo '<script>alert("更新失败，请重试");</script>';
+                                }
                             }
                         }
                         ?>

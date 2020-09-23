@@ -65,7 +65,7 @@ ENGINE = InnoDB;
 CREATE TABLE $activity_table 
 ( 
     `id` BIGINT NOT NULL , 
-    `name` VARCHAR(30) NOT NULL , 
+    `name` VARCHAR(100) NOT NULL , 
     PRIMARY KEY (`id`)
 ) 
 ENGINE = InnoDB;
