@@ -75,6 +75,38 @@ if ($enroll_user != "" && $enroll_name != "" && $enroll_sex != "" && $enroll_age
             </script>';
         }
     }
+} else if ($enroll_user != "" && $enroll_name == "" && $enroll_sex == "" && $enroll_age == "") {
+    if ($enroll_password == "") {
+        $result = insert_admin_account($link, $enroll_user);
+        if ($result == true) {
+            echo '
+            <script>
+                alert("注册管理员账户成功"); 
+                window.location.replace("../index.html"); 
+            </script>';
+        } else {
+            echo '
+            <script>
+                alert("注册管理员账户失败，请更换用户名重试"); 
+                window.location.replace("../html/enroll.html"); 
+            </script>';
+        }
+    } else {
+        $result = insert_admin_account($link, $enroll_user, $enroll_password);
+        if ($result == true) {
+            echo '
+            <script>
+                alert("注册管理员账户成功"); 
+                window.location.replace("../index.html"); 
+            </script>';
+        } else {
+            echo '
+            <script>
+                alert("注册管理员账户失败，请更换用户名重试"); 
+                window.location.replace("../html/enroll.html"); 
+            </script>';
+        }
+    }
 }
 else {
     echo '
