@@ -179,8 +179,8 @@
                                 <table>
                                     <thead>
                                         <tr>
-                                            <td>团队号</td>
-                                            <td>课外活动编号</td>
+                                            <td>团队名</td>
+                                            <td>课外活动名</td>
                                             <td>完成时间</td>
                                             <td>指导老师</td>
                                             <td>报送学院</td>
@@ -188,10 +188,20 @@
                                     </thead>
                                     <tbody>';
                                 for ($i = 0; $i < $array_count; ++$i) {
+                                    $id = $array[$i][0];
+                                    $query = "SELECT `name` FROM `team` WHERE id=\"$id\"";
+                                    $result = mysqli_query($link, $query);
+                                    $result = mysqli_fetch_all($result);
+                                    $team_name = $result[0][0];
+                                    $id = $array[$i][1];
+                                    $query = "SELECT `name` FROM `activity` WHERE id=\"$id\"";
+                                    $result = mysqli_query($link, $query);
+                                    $result = mysqli_fetch_all($result);
+                                    $activity_name = $result[0][0];
                                     echo "
                                 <tr>
-                                    <td>{$array[$i][0]}</td>
-                                    <td>{$array[$i][1]}</td>
+                                    <td>{$team_name}</td>
+                                    <td>{$activity_name}</td>
                                     <td>{$array[$i][2]}</td>
                                     <td>{$array[$i][3]}</td>
                                     <td>{$array[$i][4]}</td>

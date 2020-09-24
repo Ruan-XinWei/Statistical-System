@@ -172,15 +172,29 @@
                                     <thead>
                                         <tr>
                                             <td>学号</td>
-                                            <td>团队号</td>
+                                            <td>学生姓名</td>
+                                            <td>团队编号</td>
+                                            <td>团队名</td>
                                         </tr>
                                     </thead>
                                     <tbody>';
                                 for ($i = 0; $i < $array_count; ++$i) {
+                                    $id = $array[$i][0];
+                                    $query = "SELECT `name` FROM `student` WHERE id=\"$id\"";
+                                    $student_name = mysqli_query($link, $query);
+                                    $student_name = mysqli_fetch_all($student_name);
+                                    $student_name = $student_name[0][0];
+                                    $id = $array[$i][1];
+                                    $query = "SELECT `name` FROM `team` WHERE id=\"$id\"";
+                                    $team_name = mysqli_query($link, $query);
+                                    $team_name = mysqli_fetch_all($team_name);
+                                    $team_name = $team_name[0][0];
                                     echo "
                                 <tr>
                                     <td>{$array[$i][0]}</td>
+                                    <td>{$student_name}</td>
                                     <td>{$array[$i][1]}</td>
+                                    <td>{$team_name}</td>
                                 </tr>";
                                 }
                                 echo '
