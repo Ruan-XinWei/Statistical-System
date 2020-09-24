@@ -271,7 +271,7 @@ function update_age_student_use_id($link, $age, $oldid)
 function check_url() {
     $url_user_id = geturl_string();
     $url_start = $_SERVER['PHP_SELF'];
-    if(strpos($url_start, "login") == true || strpos($url_start, "enroll") == true) {}
+    if(strpos($url_start, "login") == true || strpos($url_start, "enroll") == true || strpos($url_start, "init") == true) {}
     else {
         $bool = false;
         if (strlen($url_user_id) <= 9) {
