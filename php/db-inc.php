@@ -189,6 +189,14 @@ function insert_student($link, $id, $name, $sex, $age) {
     return $result;
 }
 
+//注册管理员账户，返回bool
+function insert_admin_account($link, $user, $password = "password")
+{
+    $query = "INSERT INTO " . ADMIN_TABLE . "(id,password) VALUES('" . $user . "','" . $password . "');";
+    $result = mysqli_real_query($link, $query);
+    return $result;
+}
+
 //通过学号查找学生姓名
 function select_name_student($link, $id) {
     $query = 'SELECT `name` FROM '.STUDENT_TABLE.' WHERE id='.$id.';';
@@ -229,7 +237,13 @@ function select_num_team_use_id($link, $id) {
 
 //通过学号修改学号
 function update_id_student_use_id($link, $newid, $oldid) {
-    $query = 'UPDATE `student` SET `id`="'.$newid.'" WHERE id='.$oldid.';';
+    $query = 'UPDATE `student` SET `id`="'.$newid.'" WHERE id="'.$oldid.'";';
+    return mysqli_real_query($link, $query);
+}
+
+function update_id_admin_use_id($link, $newid, $oldid)
+{
+    $query = 'UPDATE `admin` SET `id`="' . $newid . '" WHERE id="' . $oldid . '";';
     return mysqli_real_query($link, $query);
 }
 
@@ -253,3 +267,32 @@ function update_age_student_use_id($link, $age, $oldid)
     $query = 'UPDATE `student` SET `age`="' . $age . '" WHERE id=' . $oldid . ';';
     return mysqli_real_query($link, $query);
 }
+
+function check_url() {
+    $url_user_id = geturl_string();
+    $url_start = $_SERVER['PHP_SELF'];
+    if(strpos($url_start, "login") == true || strpos($url_start, "enroll") == true) {}
+    else {
+        $bool = false;
+        if (strlen($url_user_id) <= 9) {
+        } else {
+            $start = strpos($url_user_id, "user=") + 5;
+            $end = strpos($url_user_id, "&id=");
+            $name = substr($url_user_id, $start, $end - $start);
+            $start = strpos($url_user_id, "id=") + 3;
+            $id = substr($url_user_id, $start);
+            if ($name != "" && $id != "") {
+                $bool = true;
+            }
+        }
+        if ($bool == false) {
+            echo '
+            <script>
+                alert("参数不正确，请重新登录");
+                window.location.replace("../../../index.html"); 
+            </script>';
+        }
+    }
+}
+
+check_url();
