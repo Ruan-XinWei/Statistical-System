@@ -9,6 +9,7 @@
     <script src="../../../script/getUrlParam.js"></script>
     <script src="../../../script/myFunction.js"></script>
     <script src="../../../script/main_info.js"></script>
+    <script src="../../../script/init.js"></script>
     <?php
     include_once "../../db-inc.php";
     $link = db_connect();
@@ -158,17 +159,27 @@
                                 ?>
                             </td>
                         </tr>
-                        <tr>
-                            <td>性别：</td>
-                            <td>
-                                <?php echo select_sex_student_use_id($link, $id); ?>
-                            </td>
-                            <td>年龄：</td>
-                            <td>
-                                <?php echo select_age_student_use_id($link, $id); ?>
-                            </td>
-                        </tr>
+                        <?php
+                        if (substr($url_user_id, 5, 9) != "管理员") {
+                            echo "
+                            <tr>
+                                <td>性别：</td>
+                                <td>";
+                            echo select_sex_student_use_id($link, $id);
+                            echo "  
+                                </td>
+                                <td>年龄：</td>
+                                <td>";
+                            echo select_age_student_use_id($link, $id);;
+                            echo "
+                                </td>
+                            </tr>";
+                        }
+                        ?>
                     </table>
+                    <div class="botton">
+                        <button onclick="init();">格式化所有数据</button>
+                    </div>
                 </div>
             </div>
         </div>

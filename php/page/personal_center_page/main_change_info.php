@@ -160,27 +160,48 @@
                                 ?>
                             </td>
                         </tr>
-                        <tr>
-                            <td>性别：</td>
-                            <td>
-                                <?php echo select_sex_student_use_id($link, $id); ?>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>年龄：</td>
-                            <td>
-                                <?php echo select_age_student_use_id($link, $id); ?>
-                            </td>
-                        </tr>
+                        <?php
+                        if (substr($url_user_id, 5, 9) != "管理员") {
+                            echo "
+                            <tr>
+                                <td>性别：</td>
+                                <td>";
+                            echo select_sex_student_use_id($link, $id);
+                            echo "  
+                                </td>
+                                </tr>
+                                <tr>
+                                <td>年龄：</td>
+                                <td>";
+                            echo select_age_student_use_id($link, $id);;
+                            echo "
+                                </td>
+                            </tr>";
+                        }
+                        ?>
                     </table>
-                    <form class="main_body_form_right" action="../../main_change_info_php.php?<?php echo $url_user_id ?>" method="post">
-                        <input type="text" id="name" name="name" placeholder="请输入你想要修改的姓名">
-                        <input type="text" id="id" name="id" placeholder="请输入你想要修改的学号">
-                        <input type="text" id="sex" name="sex" placeholder="请输入你想要修改的性别">
-                        <input type="text" id="age" name="age" placeholder="请输入你想要修改的年龄">
-                        <input type="submit" name="submit" id="submit" value="提交">
-                        <input type="reset" name="reset" id="reset">
-                    </form>
+                    <?php
+                    if (substr($url_user_id, 5, 9) != "管理员") {
+                        echo '
+                            <form class="main_body_form_right" action="../../main_change_info_php.php?'.$url_user_id.'" method="post">
+                            <input type="text" id="name" name="name" placeholder="请输入你想要修改的姓名">
+                            <input type="text" id="id" name="id" placeholder="请输入你想要修改的学号">
+                            <input type="text" id="sex" name="sex" placeholder="请输入你想要修改的性别">
+                            <input type="text" id="age" name="age" placeholder="请输入你想要修改的年龄">
+                            <input type="submit" name="submit" id="submit" value="提交">
+                            <input type="reset" name="reset" id="reset">
+                            </form>';
+                    }
+                    else {
+                        echo '
+                        <form class="main_body_form_right" action="../../main_change_info_php.php?'.$url_user_id.'" method="post">
+                            <input type="text" id="admin" name="admin" placeholder="请输入你想要修改的账号">
+                            <input type="submit" name="submit" id="submit" value="提交">
+                            <input type="reset" name="reset" id="reset">
+                        </form>
+                        ';
+                    }
+                    ?>
                 </div>
             </div>
         </div>
