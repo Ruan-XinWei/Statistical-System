@@ -133,7 +133,7 @@
                 </div>
                 <div class="main_info_top_nav">
                     <ul class="clearfix">
-                        <li><a href="../update_page/update_student.php?<?php echo $url_user_id ?>"><span>更改学生信息</span></a></li>
+                        <li class="hightlight"><a href="../update_page/update_student.php?<?php echo $url_user_id ?>"><span>更改学生信息</span></a></li>
                         <li><a href="../update_page/update_teacher.php?<?php echo $url_user_id ?>"><span>更改老师信息</span></a></li>
                         <li><a href="../update_page/update_team.php?<?php echo $url_user_id ?>"><span>更改团队信息</span></a></li>
                         <li><a href="../update_page/update_activity.php?<?php echo $url_user_id ?>"><span>更改活动信息</span></a></li>
@@ -167,7 +167,6 @@
                         $newsex = get_input("newsex");
                         $newage = get_input("newage");
                         if ($id != '' || $name != '' || $sex != '' || $age != '') {
-
                             $index = 0;
                             if ($id != '')  $index += 1000;
                             if ($name != '')  $index += 100;
