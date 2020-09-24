@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: rgb(241, 241, 241);
+    background-image: linear-gradient(to right, rgb(235, 232, 226), rgb(209, 204, 192));
     font-family: -apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif;
     font-size: 14px;
 }
