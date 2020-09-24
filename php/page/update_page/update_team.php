@@ -146,7 +146,7 @@
                         <input type="text" name="id" id="id" placeholder="请输入需要更改的团队编号">
                         <input type="text" name="name" id="name" placeholder="请输入需要更改的团队名">
                         <input type="text" name="num" id="num" placeholder="请输入需要更改的团队人数">
-                        <input type="text" name="slogan" id="slogan" placeholder="请输入需要更改的团队口号">
+                        <input class="have_border_botom" type="text" name="slogan" id="slogan" placeholder="请输入需要更改的团队口号">
                         </br>
                         <input type="text" name="newid" id="newid" placeholder="请输入新团队编号">
                         <input type="text" name="newname" id="newname" placeholder="请输入新团队名">

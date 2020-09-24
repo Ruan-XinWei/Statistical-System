@@ -147,7 +147,7 @@
                         <input type="text" name="activity_id" id="activity_id" placeholder="请输入需要更改的课外活动编号">
                         <input type="text" name="time" id="time" placeholder="请输入需要更改的完成时间">
                         <input type="text" name="teacher_id" id="teacher_id" placeholder="请输入需要更改的指导老师编号">
-                        <input type="text" name="academy" id="academy" placeholder="请输入需要更改的报送学院">
+                        <input class="have_border_botom" type="text" name="academy" id="academy" placeholder="请输入需要更改的报送学院">
                         </br>
                         <input type="text" name="newteam_id" id="newteam_id" placeholder="请输入新团队号">
                         <input type="text" name="newactivity_id" id="newactivity_id" placeholder="请输入新课外活动编号">

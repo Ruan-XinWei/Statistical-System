@@ -144,7 +144,7 @@
                 <div class="main_body clearfix">
                     <form action="<?php echo $_SERVER['PHP_SELF'] . '?' . urldecode($_SERVER['QUERY_STRING']); ?>" method="post">
                         <input type="text" name="id" id="id" placeholder="请输入需要更改的学号">
-                        <input type="text" name="team_id" id="team_id" placeholder="请输入需要更改的团队号">
+                        <input class="have_border_botom" type="text" name="team_id" id="team_id" placeholder="请输入需要更改的团队号">
                         </br>
                         <input type="text" name="newid" id="newid" placeholder="请输入需要查询的学号">
                         <input type="text" name="newteam_id" id="newteam_id" placeholder="请输入需要查询的团队号">

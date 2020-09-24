@@ -146,7 +146,7 @@
                         <input type="text" name="id" id="id" placeholder="请输入需要更改的学号">
                         <input type="text" name="name" id="name" placeholder="请输入需要更改的姓名">
                         <input type="text" name="sex" id="sex" placeholder="请输入需要更改的性别">
-                        <input type="text" name="age" id="age" placeholder="请输入需要更改的年龄">
+                        <input class="have_border_botom" type="text" name="age" id="age" placeholder="请输入需要更改的年龄">
                         </br>
                         <input type="text" name="newid" id="newid" placeholder="请输入新学号">
                         <input type="text" name="newname" id="newname" placeholder="请输入新姓名">
@@ -174,8 +174,7 @@
                             if ($sex != '')  $index += 10;
                             if ($age != '')  $index += 1;
                             $error_info = '';
-                            if ($index / 1000 >= 1
-                            ) {
+                            if ($index / 1000 >= 1) {
                                 $error_info = $error_info . ',id=\'' . $id . '\'';
                                 $index -= 1000;
                             }
@@ -201,18 +200,16 @@
                             $array = @mysqli_fetch_all($result);
                             $array_count = @count($array);
 
-                            if($array_count == 0) {
+                            if ($array_count == 0) {
                                 echo "<script>alert(\"{$error_info}\")</script>";
-                            }
-                            else {
+                            } else {
                                 $set_section = ($newid == '' ? '' : (',id="' . $newid . '"')) . ($newname == '' ? '' : (', name="' . $newname . '"')) . ($newsex == '' ? '' : (', sex="' . $newsex . '"')) . ($newage == '' ? '' : ', age="' . $newage . '"');
                                 $set_section = 'SET ' . substr($set_section, 1);
                                 $query = 'UPDATE ' . STUDENT_TABLE . ' ' . $set_section . ' ' . $where_section . ';';
                                 $result = mysqli_real_query($link, $query);
-                                if($result == true) {
+                                if ($result == true) {
                                     echo '<script>alert("更新成功");</script>';
-                                }
-                                else {
+                                } else {
                                     echo '<script>alert("更新失败，请重试");</script>';
                                 }
                             }

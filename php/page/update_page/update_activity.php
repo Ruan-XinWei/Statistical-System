@@ -144,7 +144,7 @@
                 <div class="main_body clearfix">
                     <form action="<?php echo $_SERVER['PHP_SELF'] . '?' . urldecode($_SERVER['QUERY_STRING']); ?>" method="post">
                         <input type="text" name="id" id="id" placeholder="请输入需要更改的活动编号">
-                        <input type="text" name="name" id="name" placeholder="请输入需要更改的活动名称">
+                        <input class="have_border_botom" type="text" name="name" id="name" placeholder="请输入需要更改的活动名称">
                         </br>
                         <input type="text" name="newid" id="newid" placeholder="请输入新活动编号">
                         <input type="text" name="newname" id="newname" placeholder="请输入新活动名称">

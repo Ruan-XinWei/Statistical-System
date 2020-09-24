@@ -146,7 +146,7 @@
                         <input type="text" name="id" id="id" placeholder="请输入需要更改的老师编号">
                         <input type="text" name="name" id="name" placeholder="请输入需要更改的姓名">
                         <input type="text" name="sex" id="sex" placeholder="请输入需要更改的性别">
-                        <input type="text" name="age" id="age" placeholder="请输入需要更改的年龄">
+                        <input class="have_border_botom" type="text" name="age" id="age" placeholder="请输入需要更改的年龄">
                         </br>
                         <input type="text" name="newid" id="newid" placeholder="请输入新老师编号">
                         <input type="text" name="newname" id="newname" placeholder="请输入新姓名">
