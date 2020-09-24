@@ -122,6 +122,32 @@ function find($link, $user, $password)
     }
 }
 
+//检测账号密码是否为管理员中，返回bool
+function find_admin($link, $user, $password)
+{
+    //获取数据库内的账号密码
+    $query = 'SELECT * FROM ' . ADMIN_TABLE;
+    $result = mysqli_query($link, $query);
+    $user_password = mysqli_fetch_all($result);
+
+    //账号密码总数
+    $lines = mysqli_affected_rows($link);
+
+    //循环检测
+    $flag = 0;
+    for ($i = 0; $i < $lines; $i++) {
+        if ($user == $user_password[$i][0] && $password == $user_password[$i][1]) {
+            $flag = 1;
+            break;
+        }
+    }
+    if ($flag == 0) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
 //检测账号是否在数据库中，返回bool
 function find_user($link, $user)
 {

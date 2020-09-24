@@ -25,11 +25,20 @@ if ($login_user != "" && $login_password != "") {
         // header("location:https://www.baidu.com/");
         //history.back();
     } else {
-        echo '
-        <script>
-            alert("登录失败，请重新登录"); 
-            window.location.replace("../index.html"); 
-        </script>';
+        $find_admin_bool = find_admin($link, $login_user, $login_password);
+        if($find_admin_bool == true) {
+            echo '
+            <script>
+                window.location.replace("../php/page/personal_center_page/main_info.php?user=' . select_name_student($link, $login_user) . '&id=' . $login_user . '"); 
+            </script>';
+        }
+        else {
+            echo '
+            <script>
+                alert("登录失败，请重新登录"); 
+                window.location.replace("../index.html"); 
+            </script>';
+        }
     }
 } 
 else if ($login_user == "" && $login_password == "") {
@@ -46,42 +55,3 @@ else {
             window.location.replace("../index.html"); 
         </script>';
 }
-
-//进行注册
-// $query = 'INSERT INTO table1(user,password) VALUES("'.$login_user.'","'.$login_password.'");';
-// if(!empty($_POST['enroll'])) {
-//     if ($login_user != "" && $login_password != "") {
-//         mysqli_query($link, $query);
-//         $find_bool = find($link, $login_user, $login_password);
-//         if($find_bool == true) {
-//             echo '
-//             <script>
-//                 alert("注册成功");
-//             </script>
-//             ';
-//         }
-//         else {
-//             echo '
-//             <script>
-//                 alert("注册失败");
-//             </script>
-//             ';
-//         }
-//     }
-//     else {
-//         echo '
-//         <script>
-//             alert("账号或密码不能为空");
-//         </script>
-//         ';
-//     }
-// }
-
-//清空输入框内容
-// echo '
-// <script>
-    // var login_user = document.getElementById("login_user");
-    // var login_password = document.getElementById("login_password");
-    // login_user.setAttribute("value", "");
-    // login_password.setAttribute("value", "");
-// </script>';

@@ -21,6 +21,7 @@ $team_table = TEAM_TABLE;
 $activity_table = ACTIVITY_TABLE;
 $achievement_table = ACHIEVEMENT_TABLE;
 $student_team_table = STUDENT_TEAM_TABLE;
+$admin_table = ADMIN_TABLE;
 
 $query = <<<STRING
 CREATE TABLE $student_table 
@@ -39,6 +40,14 @@ CREATE TABLE $user_password_table
     `password` VARCHAR(30) NOT NULL DEFAULT 'password' ,
     PRIMARY KEY (`id`) ,
     FOREIGN KEY (`id`) REFERENCES $student_table(`id`) ON DELETE CASCADE ON UPDATE CASCADE
+)
+ENGINE = InnoDB;
+
+CREATE TABLE $admin_table 
+(
+    `id` VARCHAR(30) NOT NULL , 
+    `password` VARCHAR(30) NOT NULL DEFAULT 'password' ,
+    PRIMARY KEY (`id`)
 )
 ENGINE = InnoDB;
 
@@ -281,6 +290,11 @@ VALUES
 ("10000088","password"),
 ("10000089","password"),
 ("10000090","password");
+
+INSERT
+INTO $admin_table(`id`, `password`)
+VALUES
+("admin","password");
 
 INSERT
 INTO $teacher_table(id, name, sex, age)
