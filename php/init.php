@@ -95,9 +95,10 @@ ENGINE = InnoDB;
 
 CREATE TABLE $student_team_table 
 ( 
+    `id` INT NOT NULL AUTO_INCREMENT ,
     `student_id` BIGINT NOT NULL , 
     `team_id` BIGINT NOT NULL , 
-    PRIMARY KEY (`student_id`, `team_id`) ,
+    PRIMARY KEY (`id`, `student_id`, `team_id`) ,
     FOREIGN KEY (`student_id`) REFERENCES $student_table(`id`) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (`team_id`) REFERENCES $team_table(`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) 

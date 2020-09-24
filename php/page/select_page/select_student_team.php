@@ -156,7 +156,7 @@
                         if ($id != '' || $team_id != '') {
                             $where_section = ($id == '' ? '' : (' AND student_id="' . $id . '"')) . ($team_id == '' ? '' : (' AND team_id="' . $team_id . '"'));
                             $where_section = 'WHERE ' . substr($where_section, 5);
-                            $query = 'SELECT * FROM ' . STUDENT_TEAM_TABLE . ' ' . $where_section;
+                            $query = 'SELECT `student_id`, `team_id` FROM ' . STUDENT_TEAM_TABLE . ' ' . $where_section;
                             $result = mysqli_query($link, $query);
                             $array = @mysqli_fetch_all($result);
                             $array_count = @count($array);
