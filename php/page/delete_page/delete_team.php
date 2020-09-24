@@ -135,7 +135,7 @@
                     <ul class="clearfix">
                         <li><a href="../delete_page/delete_student.php?<?php echo $url_user_id ?>"><span>删除学生信息</span></a></li>
                         <li><a href="../delete_page/delete_teacher.php?<?php echo $url_user_id ?>"><span>删除老师信息</span></a></li>
-                        <li><a href="../delete_page/delete_team.php?<?php echo $url_user_id ?>"><span>删除团队信息</span></a></li>
+                        <li class="hightlight"><a href="../delete_page/delete_team.php?<?php echo $url_user_id ?>"><span>删除团队信息</span></a></li>
                         <li><a href="../delete_page/delete_activity.php?<?php echo $url_user_id ?>"><span>删除活动信息</span></a></li>
                         <li><a href="../delete_page/delete_achievement.php?<?php echo $url_user_id ?>"><span>删除成果信息</span></a></li>
                         <li><a href="../delete_page/delete_student_team.php?<?php echo $url_user_id ?>"><span>删除组队信息</span></a></li>
@@ -169,8 +169,7 @@
                                 echo '<script>alert("删除失败")</script>';
                             }
                         } else if ($id == '' && $name == '' && $num == '' && $slogan == '') {
-                        }
-                        else {
+                        } else {
                             echo '<script>alert("不能为空")</script>';
                         }
                         ?>
