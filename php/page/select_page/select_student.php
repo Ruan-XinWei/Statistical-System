@@ -133,7 +133,7 @@
                 </div>
                 <div class="main_info_top_nav">
                     <ul class="clearfix">
-                        <li><a href="../select_page/select_student.php?<?php echo $url_user_id ?>"><span>查询学生</span></a></li>
+                        <li class="hightlight"><a href="../select_page/select_student.php?<?php echo $url_user_id ?>"><span>查询学生</span></a></li>
                         <li><a href="../select_page/select_teacher.php?<?php echo $url_user_id ?>"><span>查询老师</span></a></li>
                         <li><a href="../select_page/select_team.php?<?php echo $url_user_id ?>"><span>查询团队</span></a></li>
                         <li><a href="../select_page/select_activity.php?<?php echo $url_user_id ?>"><span>查询活动</span></a></li>
@@ -157,7 +157,7 @@
                         $name = get_name();
                         $sex = get_sex();
                         $age = get_age();
-                        if($id !='' || $name != '' || $sex != '' || $age != '') {
+                        if ($id != '' || $name != '' || $sex != '' || $age != '') {
                             $where_section = ($id == '' ? '' : (' AND id="' . $id . '"')) . ($name == '' ? '' : (' AND name="' . $name . '"')) . ($sex == '' ? '' : (' AND sex="' . $sex . '"')) . ($age == '' ? '' : ' AND age="' . $age . '"');
                             $where_section = 'WHERE ' . substr($where_section, 5);
                             $query = 'SELECT * FROM ' . STUDENT_TABLE . ' ' . $where_section;
