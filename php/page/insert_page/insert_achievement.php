@@ -137,7 +137,7 @@
                         <li><a href="../insert_page/insert_teacher.php?<?php echo $url_user_id ?>"><span>添加老师信息</span></a></li>
                         <li><a href="../insert_page/insert_team.php?<?php echo $url_user_id ?>"><span>添加团队信息</span></a></li>
                         <li><a href="../insert_page/insert_activity.php?<?php echo $url_user_id ?>"><span>添加活动信息</span></a></li>
-                        <li><a href="../insert_page/insert_achievement.php?<?php echo $url_user_id ?>"><span>添加成果信息</span></a></li>
+                        <li class="hightlight"><a href="../insert_page/insert_achievement.php?<?php echo $url_user_id ?>"><span>添加成果信息</span></a></li>
                         <li><a href="../insert_page/insert_student_team.php?<?php echo $url_user_id ?>"><span>添加组队信息</span></a></li>
                     </ul>
                 </div>
@@ -171,8 +171,7 @@
                                 echo '<script>alert("添加失败")</script>';
                             }
                         } else if ($team_id == '' && $activity_id == '' && $time == '' && $teacher_id == '' && $academy == '') {
-                        }
-                        else {
+                        } else {
                             echo '<script>alert("不能为空")</script>';
                         }
                         ?>

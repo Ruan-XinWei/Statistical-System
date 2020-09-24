@@ -138,7 +138,7 @@
                         <li><a href="../insert_page/insert_team.php?<?php echo $url_user_id ?>"><span>添加团队信息</span></a></li>
                         <li><a href="../insert_page/insert_activity.php?<?php echo $url_user_id ?>"><span>添加活动信息</span></a></li>
                         <li><a href="../insert_page/insert_achievement.php?<?php echo $url_user_id ?>"><span>添加成果信息</span></a></li>
-                        <li><a href="../insert_page/insert_student_team.php?<?php echo $url_user_id ?>"><span>添加组队信息</span></a></li>
+                        <li class="hightlight"><a href="../insert_page/insert_student_team.php?<?php echo $url_user_id ?>"><span>添加组队信息</span></a></li>
                     </ul>
                 </div>
                 <div class="main_body clearfix">
@@ -165,8 +165,7 @@
                                 echo '<script>alert("添加失败")</script>';
                             }
                         } else if ($id == '' && $team_id == '') {
-                        }
-                        else {
+                        } else {
                             echo '<script>alert("不能为空")</script>';
                         }
                         ?>

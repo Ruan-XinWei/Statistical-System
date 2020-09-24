@@ -133,7 +133,7 @@
                 </div>
                 <div class="main_info_top_nav">
                     <ul class="clearfix">
-                        <li><a href="../insert_page/insert_student.php?<?php echo $url_user_id ?>"><span>添加学生信息</span></a></li>
+                        <li class="hightlight"><a href="../insert_page/insert_student.php?<?php echo $url_user_id ?>"><span>添加学生信息</span></a></li>
                         <li><a href="../insert_page/insert_teacher.php?<?php echo $url_user_id ?>"><span>添加老师信息</span></a></li>
                         <li><a href="../insert_page/insert_team.php?<?php echo $url_user_id ?>"><span>添加团队信息</span></a></li>
                         <li><a href="../insert_page/insert_activity.php?<?php echo $url_user_id ?>"><span>添加活动信息</span></a></li>
@@ -161,17 +161,15 @@
                             $values_section = <<<STRING
                             ("$id", "$name", "$sex", "$age");
                             STRING;
-                            $query = 'INSERT INTO '.STUDENT_TABLE.'(id, name, sex, age) VALUES '.$values_section;
+                            $query = 'INSERT INTO ' . STUDENT_TABLE . '(id, name, sex, age) VALUES ' . $values_section;
                             $result = mysqli_real_query($link, $query);
-                            if($result == true) {
+                            if ($result == true) {
                                 echo '<script>alert("添加成功")</script>';
-                            }
-                            else {
+                            } else {
                                 echo '<script>alert("添加失败")</script>';
                             }
                         } else if ($id == '' && $name == '' && $sex == '' && $age == '') {
-                        }
-                        else {
+                        } else {
                             echo '<script>alert("不能为空")</script>';
                         }
                         ?>
