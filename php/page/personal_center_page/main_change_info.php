@@ -133,12 +133,12 @@
                 </div>
                 <div class="main_info_top_nav">
                     <ul class="clearfix">
-                        <li><a href="javascript:;"><span>个人信息</span></a></li>
-                        <li><a href="main_change_info?<?php echo $url_user_id ?>"><span>修改信息</span></a></li>
+                        <li><a href="../personal_center_page/main_info?<?php echo $url_user_id ?>"><span>个人信息</span></a></li>
+                        <li class="hightlight"><a href="../personal_center_page/main_change_info?<?php echo $url_user_id ?>"><span>修改信息</span></a></li>
                     </ul>
                 </div>
                 <div class="main_body clearfix">
-                    <table>
+                    <table class="main_change_info_table">
                         <tr>
                             <td>姓名：</td>
                             <td>
@@ -173,20 +173,13 @@
                             </td>
                         </tr>
                     </table>
-                    <form action="../main_change_info_php.php?<?php echo $url_user_id ?>" method="post">
-                        <label for="name">需要修改的姓名：</label>
+                    <form class="main_body_form_right" action="../../main_change_info_php.php?<?php echo $url_user_id ?>" method="post">
                         <input type="text" id="name" name="name" placeholder="请输入你想要修改的姓名">
-                        </br>
-                        <label for="id">需要修改的学号：</label>
                         <input type="text" id="id" name="id" placeholder="请输入你想要修改的学号">
-                        </br>
-                        <label for="sex">需要修改的性别：</label>
                         <input type="text" id="sex" name="sex" placeholder="请输入你想要修改的性别">
-                        </br>
-                        <label for="age">需要修改的年龄：</label>
                         <input type="text" id="age" name="age" placeholder="请输入你想要修改的年龄">
-                        </br>
-                        <input type='submit' value='提交'>
+                        <input type="submit" name="submit" id="submit" value="提交">
+                        <input type="reset" name="reset" id="reset">
                     </form>
                 </div>
             </div>

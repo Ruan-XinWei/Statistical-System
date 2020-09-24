@@ -133,12 +133,12 @@
                 </div>
                 <div class="main_info_top_nav clearfix">
                     <ul class="clearfix">
-                        <li><a href="javascript:;"><span>个人信息</span></a></li>
-                        <li><a href="main_change_info?<?php echo $url_user_id ?>"><span>修改信息</span></a></li>
+                        <li class="hightlight"><a href="../personal_center_page/main_info?<?php echo $url_user_id ?>"><span>个人信息</span></a></li>
+                        <li><a href="../personal_center_page/main_change_info?<?php echo $url_user_id ?>"><span>修改信息</span></a></li>
                     </ul>
                 </div>
                 <div class="main_body clearfix">
-                    <table>
+                    <table class="main_body_not_change">
                         <tr>
                             <td>姓名：</td>
                             <td>
