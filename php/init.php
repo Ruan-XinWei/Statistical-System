@@ -29,7 +29,7 @@ CREATE TABLE $student_table
     `id` BIGINT NOT NULL , 
     `name` VARCHAR(20) NOT NULL , 
     `sex` CHAR(1) NOT NULL CHECK(sex IN ('男', '女')) , 
-    `age` INT NOT NULL , 
+    `age` INT NOT NULL CHECK(age > 0 AND age < 120), 
     PRIMARY KEY (`id`)
 )
 ENGINE = InnoDB;
@@ -56,7 +56,7 @@ CREATE TABLE $teacher_table
     `id` BIGINT NOT NULL , 
     `name` VARCHAR(20) NOT NULL , 
     `sex` CHAR(1) NOT NULL CHECK(sex IN ('男', '女')) , 
-    `age` INT NOT NULL , 
+    `age` INT NOT NULL CHECK(age > 0 AND age < 120), 
     PRIMARY KEY (`id`)
 )
 ENGINE = InnoDB;
@@ -844,6 +844,36 @@ VALUES
 ("10000021", "1048"),
 ("10000066", "1048"),
 ("10000057", "1048");
+
+CREATE TRIGGER `Team_num_delete` AFTER DELETE ON `student_team`
+ FOR EACH ROW UPDATE
+    team
+SET
+    num = num - 1
+WHERE OLD.team_id = id;
+
+CREATE TRIGGER `Team_num_update` AFTER UPDATE ON `student_team`
+ FOR EACH ROW BEGIN
+UPDATE
+    team
+SET
+    num = num + 1
+WHERE NEW.team_id = id;
+UPDATE
+    team
+SET
+    num = num - 1
+WHERE OLD.team_id = id;
+END;
+
+CREATE TRIGGER `Team_num_insert` AFTER INSERT ON `student_team`
+ FOR EACH ROW UPDATE
+    team
+SET
+    num = num + 1
+WHERE NEW.team_id = id;
+
+
 STRING;
 
 $result = mysqli_multi_query($link, $query);
