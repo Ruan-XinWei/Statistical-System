@@ -17,7 +17,7 @@ $login_user = get_user();
 $login_password = get_password();
 if ($login_user != "" && $login_password != "") {
     $find_bool = find($link, $login_user, $login_password);
-    if ($find_bool == true) {
+    if ($find_bool == true) {   //如果在学生端查找成功
         echo '
             <script>
                 window.location.replace("../php/page/personal_center_page/main_info_student.php?user='.select_name_student($link, $login_user).'&id='.$login_user.'"); 
@@ -26,13 +26,13 @@ if ($login_user != "" && $login_password != "") {
         //history.back();
     } else {
         $find_admin_bool = find_admin($link, $login_user, $login_password);
-        if($find_admin_bool == true) {
+        if($find_admin_bool == true) {  //如果在管理员端查找成功
             echo '
             <script>
                 window.location.replace("../php/page/personal_center_page/main_info.php?user=管理员' . '&id=' . $login_user . '"); 
             </script>';
         }
-        else {
+        else {  //如果都没有成功
             echo '
             <script>
                 alert("登录失败，请重新登录"); 

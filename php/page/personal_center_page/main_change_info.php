@@ -181,7 +181,7 @@
                         ?>
                     </table>
                     <?php
-                    if (substr($url_user_id, 5, 9) != "管理员") {
+                    if (substr($url_user_id, 5, 9) != "管理员") {   //切换学生端和管理员端
                         echo '
                             <form class="main_body_form_right" action="../../main_change_info_php.php?'.$url_user_id.'" method="post">
                             <input type="text" id="name" name="name" placeholder="请输入你想要修改的姓名">

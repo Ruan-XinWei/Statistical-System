@@ -173,23 +173,24 @@
                             if ($sex != '')  $index += 10;
                             if ($age != '')  $index += 1;
                             $error_info = '';
-                            if ($index / 1000 >= 1) {
+                            if ($index / 1000 >= 1) {   //记录是否是$id问题
                                 $error_info = $error_info . ',id=\'' . $id . '\'';
                                 $index -= 1000;
                             }
-                            if ($index / 100 >= 1) {
+                            if ($index / 100 >= 1) {    //记录是否是$name问题
                                 $error_info = $error_info . ',name=\'' . $name . '\'';
                                 $index -= 100;
                             }
-                            if ($index / 10 >= 1) {
+                            if ($index / 10 >= 1) { //记录是否是$sex问题
                                 $error_info = $error_info . ',sex=\'' . $sex . '\'';
                                 $index -= 10;
                             }
-                            if ($index >= 1) {
+                            if ($index >= 1) {  //记录是否是$age问题
                                 $error_info = $error_info . ',age=\'' . $age . '\'';
                                 $index = 0;
                             }
                             $error_info = substr($error_info, 1);
+                            //记录报错信息
                             $error_info = '在' . $error_info . '的条件下查询不到数据';
 
                             $where_section = ($id == '' ? '' : (' AND id="' . $id . '"')) . ($name == '' ? '' : (' AND name="' . $name . '"')) . ($sex == '' ? '' : (' AND sex="' . $sex . '"')) . ($age == '' ? '' : ' AND age="' . $age . '"');

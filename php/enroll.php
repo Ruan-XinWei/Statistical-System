@@ -12,28 +12,28 @@ $enroll_sex = get_sex();
 $enroll_age = get_age();
 
 if ($enroll_user != "" && $enroll_name != "" && $enroll_sex != "" && $enroll_age != "") {
-    if (!is_numeric($enroll_user)) {
+    if (!is_numeric($enroll_user)) {    //检查用户名是否规范
         echo '
         <script>
             alert("用户名必须为数字组合");
             window.location.replace("../html/enroll.html"); 
         </script>';
     }
-    if (strlen($enroll_name) > 20) {
+    if (strlen($enroll_name) > 20) {    //检查姓名是否规范
         echo '
         <script>
             alert("姓名不能超过20个字符");
             window.location.replace("../html/enroll.html"); 
         </script>';
     }
-    if ($enroll_sex != '男' && $enroll_sex != '女') {
+    if ($enroll_sex != '男' && $enroll_sex != '女') {   //检查性别是否规范
         echo '
         <script>
             alert("性别必须为男或女"); 
             window.location.replace("../html/enroll.html"); 
         </script>';
     }
-    if ($enroll_age < 0 || $enroll_age > 120) {
+    if ($enroll_age < 0 || $enroll_age > 120) { //检查年龄是否规范
         echo '
         <script>
             alert("年龄必须大于0并且小于120"); 
@@ -43,13 +43,13 @@ if ($enroll_user != "" && $enroll_name != "" && $enroll_sex != "" && $enroll_age
     if ($enroll_password != "") {
         $insert_student_bool = insert_student($link, $enroll_user, $enroll_name, $enroll_sex, $enroll_age);
         $insert_student_account_bool = insert_student_account($link, $enroll_user, $enroll_password);
-        if ($insert_student_bool && $insert_student_account_bool) {
+        if ($insert_student_bool && $insert_student_account_bool) { //注册成功
             echo '
             <script>
                 alert("注册成功"); 
                 window.location.replace("../index.html"); 
             </script>';
-        } else {
+        } else {    //注册失败
             echo '
             <script>
                 alert("注册失败，请更换用户名重试"); 

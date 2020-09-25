@@ -10,6 +10,7 @@
     <script src="../../../script/myFunction.js"></script>
     <script src="../../../script/main_info.js"></script>
     <script src="../../../script/init.js"></script>
+    <script src="../../../script/exit.js"></script>
     <?php
     include_once "../../db-inc.php";
     $link = db_connect();
@@ -178,7 +179,11 @@
                         ?>
                     </table>
                     <div class="botton">
-                        <button onclick="init();">格式化所有数据</button>
+                        <button onclick="init();">恢复数据</button>
+                    </div>
+                    </br>
+                    <div class="botton">
+                        <button onclick="exit();">退出系统</button>
                     </div>
                 </div>
             </div>

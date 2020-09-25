@@ -9,6 +9,7 @@
     <script src="../../../script/getUrlParam.js"></script>
     <script src="../../../script/myFunction.js"></script>
     <script src="../../../script/main_info.js"></script>
+    <script src="../../../script/exit.js"></script>
     <?php
     include_once "../../db-inc.php";
     $link = db_connect();
@@ -128,6 +129,10 @@
                         }
                         ?>
                     </table>
+                    </br>
+                    <div class="botton">
+                        <button onclick="exit();">退出系统</button>
+                    </div>
                 </div>
             </div>
         </div>

@@ -275,7 +275,7 @@ function check_url() {
     else {
         $bool = false;
         if (strlen($url_user_id) <= 9) {
-        } else {
+        } else {    //检测URL是否规范
             $start = strpos($url_user_id, "user=") + 5;
             $end = strpos($url_user_id, "&id=");
             $name = substr($url_user_id, $start, $end - $start);

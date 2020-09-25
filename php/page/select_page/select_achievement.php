@@ -162,19 +162,23 @@
                         $teacher_id = get_teacher_id();
                         $academy = get_academy();
                         if ($team_id != '' || $activity_id != '' || $time_start != '' || $time_end != '' || $teacher_id != '' || $academy != '') {
+                            //拼接select条件
                             $where_section = ($team_id == '' ? '' : (' AND team_id="' . $team_id . '"')) . ($activity_id == '' ? '' : (' AND activity_id="' . $activity_id . '"')) . ($time_start == '' ? '' : (' AND time>="' . $time_start . '"')) . ($time_end == '' ? '' : ' AND time<="' . $time_end . '"') . ($teacher_id == '' ? '' : (' AND teacher_id="' . $teacher_id . '"')) . ($academy == '' ? '' : (' AND academy="' . $academy . '"'));
                             $where_section = 'WHERE ' . substr($where_section, 5);
+                            //完成完整select语句
                             $query = 'SELECT * FROM ' . ACHIEVEMENT_TABLE . ' ' . $where_section;
+                            //进行查询
                             $result = mysqli_query($link, $query);
                             $array = @mysqli_fetch_all($result);
                             $array_count = @count($array);
+                            //如果没有数据
                             if ($array_count == 0) {
                                 echo '
                                     <script>
                                         alert("没有查询到数据");
                                     </script>
                                 ';
-                            } else {
+                            } else {    //如果查询到数据
                                 echo '
                                 <table>
                                     <thead>
