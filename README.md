@@ -1,4 +1,4 @@
-# Database-Course-Design
+# Database-Course-Design（数据库课程设计）
 
 ## 简要介绍
 
