@@ -36,5 +36,15 @@
    3. main.css：登录、注册界面的css文件。
    4. reset.css：重置样式css文件。
 7. 课程设计报告：包含了Word版和PDF版。
-8. README.md：仓库概述。
+8. <span>README.md</span>：仓库概述。
 9. index.html：统计系统的初始页面。
+
+## 系统使用
+
+1. 首先安装wampserver集成环境，减少一些配置问题，只关注代码问题
+   1. wampserver官网：https://www.wampserver.com/
+   2. wampserver安装：https://sourceforge.net/projects/wampserver/files/
+2. 将仓库克隆到`wampserver/www`目录下
+3. 开启wampserver服务
+4. 先输入URL：http://localhost:80/database-course-design/php/init.php 进行MYSQL初始化 (端口号默认是80，如果没有修改可以不用填写，否则就填写对应端口号)
+5. 然后输入URL：http://localhost:80/database-course-design 进入系统 (端口号部分与上相同)
